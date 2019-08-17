@@ -25,16 +25,12 @@
     'data': [
         # 'security/ir.model.access.csv',
         'data/data.xml',
-        'views/partner.xml',
         'views/views.xml',
         'views/templates.xml',
-        'views/hr.xml',
         'security/security.xml',
         'security/ir.model.access.csv',
-        'report/training_report.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
-        'demo/demo.xml',
     ],
 }

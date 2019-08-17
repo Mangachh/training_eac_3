@@ -1,16 +1,4 @@
 <odoo>
     <data>
-        <record id="especialty1" model="training.especialty">
-            <field name="name">Programming</field>
-        </record>
-        <record id="especialty2" model="training.especialty">
-            <field name="name">Quality</field>
-        </record>
-        <record id="especialty3" model="training.especialty">
-            <field name="name">Security</field>
-        </record>
-        <record id="especialty4" model="training.especialty">
-            <field name="name">Software</field>
-        </record>
     </data>
 </odoo>
