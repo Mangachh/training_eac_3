@@ -1,0 +1,101 @@
+<odoo>
+    <data>
+        <report
+            id="report_training"
+            model="training.formative_action"
+            string="Formative action Report"
+            name="training.report_formative_action_view"
+            file="training.report_formative_action"
+            report_type="qweb-pdf" />
+        <template id="report_formative_action_view">
+            <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+            <t t-call="web.external_layout">
+            <div class="page">
+            <div class="container-fluid">
+                <h2 class="text-center mt32">
+                    Formative action:
+                    <span t-field="doc.id_course"/>
+                </h2>
+                <div class="row mt32 mb32">
+                    <div class="col-7">
+                    </div>
+                    <div class="col-3">
+                        <p class="text-right">
+                            Course no:</p>
+                        <p class="text-right">
+                            Date begin:</p>
+                    </div>
+                    <div class="col-2">
+                        <p class="text-right">
+                            <span t-field="doc.id"/></p>
+                        <p class="text-right">
+                            <span t-field="doc.date"/></p>
+                    </div>
+                </div>
+
+                <div class="row mt32 mb32">
+                    <div class="col-12">
+                        <p>
+                            <strong>Trainer: </strong>
+                            <span t-field="doc.id_trainer"/>
+                        </p>
+
+                    </div>
+                </div>
+                <div class="row mt32 mb32 border p-2">
+                    <div class="col-4">
+                        <p><strong>Hours: </strong></p>
+                        <p t-field="doc.no_hours"/>
+                   </div>
+                    <div class="col-4">
+                        <p><strong>Hours per session: </strong></p>
+                        <p t-field="doc.hours_per_session"/>
+                    </div>
+                    <div class="col-4">
+                        <p><strong>Sessions: </strong></p>
+                        <p t-field="doc.no_sessions"/>
+                    </div>
+                </div>
+
+               <div class="row mt32 mb32">
+                   <div class="col-12">
+                        <p><strong>Description</strong></p>
+                        <p t-field="doc.id_course.description"/>
+                   </div>
+               </div>
+               <h2 class="text-center mt32">
+                    Participants
+               </h2>
+               <div class="row mt32 mb32">
+                   <div class="col-12">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                        <th>Participant</th>
+                                        <th>Signature</th>
+                                </tr>
+                           </thead>
+                            <tbody>
+                                <tr t-foreach="doc.participants" t-as="participant">
+                                    <td><span t-field="participant.name"/></td>
+                                    <td><span></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                   </div>
+               </div>
+               <div class="row mt64 mb32">
+                    <div class="col-4">
+                        <p><strong>Trainer's signature</strong></p>
+                        <div t-field="doc.id_trainer"/>
+                    </div>
+               </div>
+            </div>
+            </div>
+            </t>
+            </t>
+            </t>
+        </template>
+    </data>
+</odoo>

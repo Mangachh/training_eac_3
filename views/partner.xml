@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <!--
+    Partners Extension
+  -->
+
+    <record id="view_partner_training" model="ir.ui.view">
+        <field name="name">partner.training</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <page name="internal_notes" position="before">
+                <page name="training" string="Training">
+                <group>
+                    <field name="trainer"/>
+                    <field name="id_especialty"/>
+                </group>
+                </page>
+            </page>
+        </field>
+    </record>
+
+
+       <record id="view_res_partner_filter" model="ir.ui.view">
+            <field name="name">partner.select</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <filter name="supplier" position="after">
+                    <filter string="Trainer" name="trainer" domain="[('trainer','=',True)]"/>
+                </filter>
+            </field>
+        </record>
+
+
+
+    <record id="action_training_form" model="ir.actions.act_window">
+            <field name="name">Trainers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="context">{'search_default_trainer': True}</field>
+            <field name="search_view_id" ref="base.view_res_partner_filter"/>
+        </record>
+
+
+  </data>
+</odoo>

@@ -1,0 +1,191 @@
+<odoo>
+  <data>
+
+    <!-- class catalogue -->
+      <!-- Tree view-->
+      <record model="ir.ui.view" id="-catalogue_list">
+        <field name="name">Catalogue list</field>
+        <field name="model">training.catalogue</field>
+        <field name="arch" type="xml">
+          <tree>
+            <field name="name"/>
+            <field name="no_hours"/>
+          </tree>
+        </field>
+      </record>
+
+      <!-- form view -->
+      <record model="ir.ui.view" id="-catalogue_form">
+        <field name="name">Catalogue form</field>
+        <field name="model">training.catalogue</field>
+        <field name="arch" type="xml">
+            <form string="Catalogue">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object"
+                                class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button"
+                                options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" placeholder="Curs' Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                            <field name="description" />
+                            <field name="no_hours" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+      </record>
+
+    <!-- class especialty -->
+      <!-- Tree view-->
+      <record model="ir.ui.view" id="especialty_list">
+        <field name="name">Especialties list</field>
+        <field name="model">training.especialty</field>
+        <field name="arch" type="xml">
+          <tree>
+            <field name="name"/>
+          </tree>
+        </field>
+      </record>
+
+      <!-- form view -->
+      <record model="ir.ui.view" id="especialty_form">
+        <field name="name">Especialties form</field>
+        <field name="model">training.especialty</field>
+        <field name="arch" type="xml">
+            <form string="Especialties">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" placeholder="Especialty"/>
+                        </h1>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+      </record>
+
+    <!-- class formative_action -->
+      <!-- Tree view-->
+      <record model="ir.ui.view" id="formative_action_list">
+        <field name="name">Formative actions list</field>
+        <field name="model">training.formative_action</field>
+        <field name="arch" type="xml">
+          <tree>
+            <field name="date"/>
+            <field name="id_course"/>
+          </tree>
+        </field>
+      </record>
+
+      <!-- form view -->
+      <record model="ir.ui.view" id="formative_action_form">
+        <field name="name">Formative actions form</field>
+        <field name="model">training.formative_action</field>
+        <field name="arch" type="xml">
+            <form string="Formative actions">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="id_course" class="oe_edit_only"/>
+                        <h1>
+                            <field name="id_course" placeholder="Curs' Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                                <field name="date" />
+                                <field name="hours_per_session" />
+                       </group>
+                        <group>
+                                <field name="no_hours" />
+                                <field name="no_sessions"/>
+                        </group>
+                    </group>
+                    <group>
+                            <field name="id_trainer" />
+                    </group>
+                     <group>
+                            <field name="participants" />
+                    </group>
+               </sheet>
+            </form>
+        </field>
+      </record>
+
+      <!-- calendar view -->
+      <record model="ir.ui.view" id="formative_action_calendar">
+        <field name="name">Formative actions calendar</field>
+        <field name="model">training.formative_action</field>
+        <field name="arch" type="xml">
+            <calendar string="Session Calendar" date_start="date"
+                color="id_course" mode="month">
+                <field name="id_course"/>
+            </calendar>
+        </field>
+    </record>
+
+      <!-- search view -->
+      <record model="ir.ui.view" id="formative_action_search" >
+          <field name="model">training.formative_action</field>
+          <field name="arch" type="xml">
+            <search>
+                <field name="id_course" string="Course's name"/>
+                <field name="id_trainer" string="Trainer's name"/>
+                <filter string="Future courses" name="future" domain="[('date','&gt;',(context_today().strftime('%Y-%m-%d')))]"/>
+                <group string="Group By">
+                    <filter name="group_by_trainer" string="Trainer"
+                    context="{'group_by': 'id_trainer'}"/>
+                </group>
+            </search>
+          </field>
+      </record>
+
+   
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="catalogue_action_window">
+      <field name="name">Catalogue</field>
+      <field name="res_model">training.catalogue</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="especialty_action_window">
+      <field name="name">Especialties</field>
+      <field name="res_model">training.especialty</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="formative_action_action_window">
+      <field name="name">Formative actions</field>
+      <field name="res_model">training.formative_action</field>
+      <field name="view_mode">tree,form,calendar</field>
+    </record>
+
+    
+    <!-- Top menu item -->
+
+    <menuitem name="Training" id="training.menu_root" web_icon="training,static/description/icon.png"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Formative actions" id="training.menu_1" parent="training.menu_root" action="formative_action_action_window"/>
+    <menuitem name="Setup" id="training.menu_2" parent="training.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="Catalogue" id="training.menu_1_list" parent="training.menu_2"
+              action="catalogue_action_window"/>
+    <menuitem name="Especialties" id="training.menu_2_list" parent="training.menu_2"
+              action="especialty_action_window"/>
+    <menuitem name="Trainers" id="res_partner_menu" parent="training.menu_2" action="action_training_form"/>
+
+  </data>
+</odoo>
