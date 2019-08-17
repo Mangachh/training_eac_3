@@ -11,28 +11,6 @@ class catalogue(models.Model):
      no_hours = fields.Integer(string="no hours")
      active = fields.Boolean('Active', default=True)
 
-"""class trainer(models.Model):
-    _name = 'training.trainer'
-
-    name = fields.Char(compute='_trainer_name', size=32, string='Trainer\'s name')
-    firstname = fields.Char(size=32, string='Name', index=True, required=True)
-    surname1 = fields.Char(size=32, string='Middle name', index=True, required=True)
-    surname2 = fields.Char(size=32, string='Last name')
-    id_especialty = fields.Many2one('training.especialty', string="Especialty", required=True)
-
-    @api.multi
-    def _trainer_name(self):
-        for record in self:
-            if record.firstname and record.surname1:
-                record.name = record.firstname + " " + record.surname1 + " " + record.surname2
-            else: record.name = ''          
-"""
-
-class especialty(models.Model):
-    _name = 'training.especialty'
-
-    name = fields.Char(size=32, string='Name', required=True)
-
 class formative_action(models.Model):
     _name = 'training.formative_action'
 
@@ -41,7 +19,7 @@ class formative_action(models.Model):
     no_sessions = fields.Integer(compute='_no_sessions', string="no sessions")
     id_course = fields.Many2one('training.catalogue', required=True, string="Course")
     no_hours = fields.Integer(related='id_course.no_hours', store=False, string="no hours")
-    id_trainer = fields.Many2one('res.partner', string="Trainer", domain=[('trainer', '=', True)])
+    id_trainer = fields.Many2one('res.partner', string="Trainer")
     participants = fields.Many2many('hr.employee', string="Participants")
 
     @api.multi

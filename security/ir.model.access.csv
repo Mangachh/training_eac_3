@@ -1,5 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_training_catalogue_manager,training.catalogue.manager,model_training_catalogue,group_training_manager,1,1,1,1
-access_training_especialty_manager,training.especialty.manager,model_training_especialty,group_training_manager,1,1,1,1
 access_training_formative_action_manager,training.formative_action.manager,model_training_formative_action,group_training_manager,1,1,1,1
 access_hr_employee_user,hr.employee user,hr.model_hr_employee,group_training_manager,1,1,1,1
