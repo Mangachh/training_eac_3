@@ -7,11 +7,10 @@
             <field name="arch" type="xml">
                 <page name="personal_information" position="after">
                     <page name="formative_actions" string="Formative Actions">
-                        <sheet>
-                            <groups>
+
+                            <group>
                                 <field name="formative_actions"/>
-                            </groups>
-                        </sheet>
+                            </group>
                     </page>
 
                 </page>
