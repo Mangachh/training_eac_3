@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-    <!-- Primero creamos la categoria-->
-    <record model="ir.module.category" id="module_category_training">
-        <field name="name">Training</field>
-        <field name="description">Helps you manage your formative actions</field>
-        <field name="sequence">124</field>
-    </record>
+    <data noupdate="0">
+        <!-- Primero creamos la categoria-->
+        <record id="module_category_training" model="ir.module.category">
+            <field name="name">Training</field>
+            <field name="description">Helps you manage your formative actions</field>
+            <field name="sequence">124</field>
+        </record>
 
-    <record id="group_training_manager" model="res.groups">
-        <field name="name">Manager</field>
-        <field name="category_id" ref="module_category_training"/>
-        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
-    </record>
+        <!-- Grupo user -->
+         <record id="group_training_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="training.module_category_training"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
 
-
-    <!-- El usuario por defecto será administrador de biblioteca -->
-    <record id="base.default_user" model="res.users">
-        <field name="groups_id" eval="[(4,ref('group_training_manager'))]"/>
-    </record>
-
+        <!-- Grupo Manager -->
+        <record id="group_training_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="training.module_category_training"/>
+            <!-- Admin y root por defecto en el grupo-->
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+            <field name="implied_ids" eval="[(4, ref('group_training_user')), (4, ref('hr.group_hr_user'))]"/>
+        </record>
     </data>
 </odoo>

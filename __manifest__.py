@@ -9,7 +9,7 @@
         Module for the management and monitoring of employee training actions
     """,
 
-    'author': "Mikel López",
+    'author': "Àlex Milan",
     'website': "http://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing
@@ -33,4 +33,6 @@
     # only loaded in demonstration mode
     'demo': [
     ],
+    'installable': True,
+    'application': True,
 }

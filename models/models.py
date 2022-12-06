@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
-from datetime import timedelta
 
 class catalogue(models.Model):
      _name = 'training.catalogue'
@@ -22,9 +21,12 @@ class formative_action(models.Model):
     id_trainer = fields.Many2one('res.partner', string="Trainer")
     participants = fields.Many2many('hr.employee', string="Participants")
 
-    @api.multi
+    @api.depends('hours_per_session', 'no_hours')
     def _no_sessions(self):
-        for record in self:
-            if record.no_hours%record.hours_per_session == 0:
-                record.no_sessions = record.no_hours/record.hours_per_session
-            else: record.no_sessions = record.no_hours/record.hours_per_session+1
+        if self.hours_per_session == 0:
+            self.no_sessions = 0
+        else:
+            if self.no_hours%self.hours_per_session == 0:
+                self.no_sessions = self.no_hours/self.hours_per_session
+            else:
+                self.no_sessions = (self.no_hours/self.hours_per_session)+1
