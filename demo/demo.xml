@@ -1,0 +1,117 @@
+<odoo>
+    <data>
+        <!-- users
+        <record id="user_tr_01" model="res.users">
+            <field name="name">Training One</field>
+            <field name="partner_id" ref="base.partner_demo"/>
+            <field name="login">training01</field>
+            <field name="password">training01</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('training.group_training_user')])]"/>
+            <field name="image_1920" type="base64" file="training/static/img/training_one.jpeg"/>
+        </record>
+
+        <record id="user_tr_02" model="res.users">
+            <field name="name">Training Two</field>
+            <field name="partner_id" ref="base.partner_demo"/>
+            <field name="login">training02</field>
+            <field name="password">training02</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('training.group_training_user')])]"/>
+            <field name="image_1920" type="base64" file="training/static/img/training_two.jpeg"/>
+        </record>
+        -->
+
+        <!-- Employees -->
+        <record id="employee_tr_01" model="hr.employee">
+            <field name="name">Training One</field>
+            <!--
+            <field name="user_id" ref="user_tr_01"/>
+            -->
+            <field name="work_location">Building 1, Second Floor</field>
+            <field name="work_phone">+34685124752</field>
+            <field name="work_email">t_one@odoo.com</field>
+            <field name="image_1920" type="base64" file="training/static/img/training_one.jpeg"/>
+        </record>
+
+        <record id="employee_tr_02" model="hr.employee">
+            <field name="name">Training Two</field>
+
+            <field name="user_id" ref="user_tr_02"/>
+
+            <field name="work_location">Building 1, Third Floor</field>
+            <field name="work_phone">+34658963254</field>
+            <field name="work_email">t_two@odoo.com</field>
+            <field name="image_1920" type="base64" file="training/static/img/training_two.jpeg"/>
+        </record>
+
+        <!-- Res partners -->
+        <record id="res_partner_tr_01" model="res.partner">
+            <field name="name">Manoseados Pepote</field>
+            <field eval="[(6, 0, [ref('base.res_partner_category_2'), ref('base.res_partner_category_12')])]" name="category_id"/>
+            <field name="is_company">1</field>
+            <field name="street">Calle Falsa 123</field>
+            <field name="city">Springfield</field>
+            <field name="state_id" ref='base.state_us_5'/>
+            <field name="zip">555874</field>
+            <field name="country_id" ref="base.us"/>
+            <field name="email">man_pepote@mail.com</field>
+            <field name="phone">555-555-555</field>
+            <field name="website">http://www.manoseados-pepote.com</field>
+            <field name="image_1920" type="base64" file="training/static/img/trainer_one.png"/>
+        </record>
+
+        <record id="res_partner_tr_02" model="res.partner">
+            <field name="name">Desdentado Joe</field>
+            <field eval="[(6, 0, [ref('base.res_partner_category_14'), ref('base.res_partner_category_8')])]" name="category_id"/>
+            <field name="is_company">1</field>
+            <field name="street">Arriba a la izquierda, 3</field>
+            <field name="city">Inventadoland</field>
+            <field name="state_id" ref='base.state_us_2'/>
+            <field name="zip">147855</field>
+            <field name="country_id" ref="base.us"/>
+            <field name="email">clamidia@mail.com</field>
+            <field name="phone">555-777-555</field>
+            <field name="website">http://www.desdentado-joe.com</field>
+            <field name="image_1920" type="base64" file="training/static/img/trainer_two.png"/>
+
+        </record>
+
+        <!-- Catalogues -->
+        <record id="catalogue_01" model="training.catalogue">
+            <field name="name">Python Essentials</field>
+            <field name="description">A beginner-friendly Python course</field>
+            <field name="no_hours">90</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="catalogue_02" model="training.catalogue">
+            <field name="name">Linux with Confidence</field>
+            <field name="description">An introduction to linux as main operating system</field>
+            <field name="no_hours">157</field>
+            <field name="active">1</field>
+        </record>
+
+        <!-- Formatives -->
+        <record id="formative_action_01" model="training.formative_action">
+            <field name="date">2021-01-04</field>
+            <field name="hours_per_session">2</field>
+            <field name="id_course" ref="catalogue_01"/>
+            <field name="id_trainer" ref="res_partner_tr_02"/>
+            <field name="participants" eval="[(6,0, [ref('employee_tr_01'), ref('employee_tr_02')])]"/>
+        </record>
+
+        <record id="formative_action_02" model="training.formative_action">
+            <field name="date">2023-02-25</field>
+            <field name="hours_per_session">1</field>
+            <field name="id_course" ref="catalogue_02"/>
+            <field name="id_trainer" ref="res_partner_tr_01"/>
+            <field name="participants" eval="[(6,0, [ref('employee_tr_01')])]"/>
+        </record>
+
+
+
+
+
+    </data>
+</odoo>
