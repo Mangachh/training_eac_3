@@ -30,6 +30,7 @@
         'views/hr.xml',
         'security/security.xml',
         'security/ir.model.access.csv',
+        'report/formative_action_report.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

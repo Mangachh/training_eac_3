@@ -10,6 +10,7 @@ class catalogue(models.Model):
      no_hours = fields.Integer(string="no hours")
      active = fields.Boolean('Active', default=True)
 
+
 class formative_action(models.Model):
     _name = 'training.formative_action'
 

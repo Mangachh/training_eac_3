@@ -1,0 +1,117 @@
+<odoo>
+    <data>
+        <report id="report_formative_action"
+                model="training.formative_action"
+                string="Formative Action Report"
+                name="training.report_formative_action_view"
+                file="training.report_formative_action"
+                report_type="qweb-pdf"/>
+        <template id="report_formative_action_view">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                        <!-- header -->
+                        <div class="text-center mt32">
+                            <h1>Formative Action:
+                                <span t-field="doc.id_course"/>
+                            </h1>
+                        </div>
+                        <!-- date-course_id -->
+                        <div class="row mt32 mb32">
+                            <div class="col-7"/>
+                            <div class="text-right font-weight-bold col-3">
+                                <div class="mb8">
+                                    Course no:
+                                </div>
+                                <div class="mb32">
+                                    Date begin:
+                                </div>
+                            </div>
+                            <div class="col-2 text-right">
+                                <div class="mb8">
+                                    <span t-field="doc.id"/>
+                                </div>
+                                <div class="mb32">
+                                    <span t-field="doc.date"/>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- trainer -->
+                        <div class="text-left">
+                            <div>
+                                <a class="font-weight-bold">Trainer:  </a>
+                                <span t-field="doc.id_trainer"/>
+                            </div>
+
+                        </div>
+                        <!-- hours - hour_per_session - sessions -->
+                        <div class="row mt32 mb16 border col-12">
+                            <!-- header -->
+                                <div class="text-center col-4">
+                                    <div class="font-weight-bold">Hours:</div>
+                                    <div class="mt16">
+                                        <span t-field="doc.no_hours"/>
+                                    </div>
+                                </div>
+                                <div class="text-center col-4">
+                                    <div class="font-weight-bold">Hours per session:</div>
+                                    <div class="mt16">
+                                        <span t-field="doc.hours_per_session"/>
+                                    </div>
+                                </div>
+                                <div class="text-center col-4">
+                                    <div class="font-weight-bold">Sessions:</div>
+                                    <div class="mt16">
+                                        <span t-field="doc.no_sessions"/>
+                                    </div>
+                                </div>
+                        </div>
+                        <!-- description data -->
+                        <div class="mt32 mb32">
+                            <a class="font-weight-bold">Description:</a>
+                            <span t-field="doc.id_course.description"/>
+                        </div>
+                        <!-- participants header -->
+                        <div class="text-center mt64 mb32">
+                            <h1>Participants</h1>
+                        </div>
+
+                        <!-- participants data -->
+                        <div>
+                            <table class="table table-bordered">
+                                <thead class="font-weight-bold text-center">
+                                    <th style="width:30%">Participant</th>
+                                    <th>Signature</th>
+                                </thead>
+                                <tbody class="text-left">
+                                    <tr t-foreach="doc.participants" t-as="employee">
+                                        <td>
+                                            <span t-field="employee.name"/>
+                                        </td>
+                                        <td/>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                        <!-- footer -->
+                        <div class="row mt128 mb32">
+                            <div>
+                                <div class="font-weight-bold">
+                                    <a>Trainer's signature</a>
+                                </div>
+                                <div class="mt16">
+                                    <span t-field="doc.id_trainer.name"/>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>
