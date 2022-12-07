@@ -1,0 +1,182 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* training
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-07 10:46+0000\n"
+"PO-Revision-Date: 2022-12-07 11:56+0100\n"
+"Last-Translator: Lluís Cobos Aumatell\n"
+"Language-Team: Cobos-Team\n"
+"Language: ca_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.2.2\n"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_catalogue__active
+msgid "Active"
+msgstr "Actiu"
+
+#. module: training
+#: model:ir.actions.act_window,name:training.catalogue_action_window
+#: model:ir.ui.menu,name:training.menu_1_list
+#: model_terms:ir.ui.view,arch_db:training.-catalogue_form
+msgid "Catalogue"
+msgstr "Catàleg"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_formative_action__id_course
+msgid "Course"
+msgstr "Curs"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_catalogue__create_uid
+#: model:ir.model.fields,field_description:training.field_training_formative_action__create_uid
+msgid "Created by"
+msgstr "Creat per"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_catalogue__create_date
+#: model:ir.model.fields,field_description:training.field_training_formative_action__create_date
+msgid "Created on"
+msgstr "Creat el"
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.-catalogue_form
+#: model_terms:ir.ui.view,arch_db:training.formative_action_form
+msgid "Curs' Name"
+msgstr "Nom del curs"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_formative_action__date
+msgid "Date begin"
+msgstr "Data d'inici"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_catalogue__description
+msgid "Description"
+msgstr "Descripció"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_catalogue__display_name
+#: model:ir.model.fields,field_description:training.field_training_formative_action__display_name
+msgid "Display Name"
+msgstr "Nom a mostrar"
+
+#. module: training
+#: model:ir.model,name:training.model_hr_employee
+msgid "Employee"
+msgstr "Empleat"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_hr_employee__formative_actions
+msgid "Employee Formative Actions"
+msgstr "Acció Formativa de l'empleat"
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.view_employee_form
+msgid "Formative Actions"
+msgstr "Acció Formativa"
+
+#. module: training
+#: model:ir.actions.act_window,name:training.formative_action_action_window
+#: model:ir.ui.menu,name:training.menu_1
+#: model_terms:ir.ui.view,arch_db:training.formative_action_form
+msgid "Formative actions"
+msgstr "Accions Formatives"
+
+#. module: training
+#: model:ir.module.category,description:training.module_category_training
+msgid "Helps you manage your formative actions"
+msgstr "L'ajuda a administrar les seves accions formatives"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_formative_action__hours_per_session
+msgid "Hours per session"
+msgstr "Hores per sessió"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_catalogue__id
+#: model:ir.model.fields,field_description:training.field_training_formative_action__id
+msgid "ID"
+msgstr "ID"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_catalogue____last_update
+#: model:ir.model.fields,field_description:training.field_training_formative_action____last_update
+msgid "Last Modified on"
+msgstr "Modificat el darrer cop el"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_catalogue__write_uid
+#: model:ir.model.fields,field_description:training.field_training_formative_action__write_uid
+msgid "Last Updated by"
+msgstr "Actualitzar el darrer cop per"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_catalogue__write_date
+#: model:ir.model.fields,field_description:training.field_training_formative_action__write_date
+msgid "Last Updated on"
+msgstr "Actualitzar el darrer cop el"
+
+#. module: training
+#: model:res.groups,name:training.group_training_manager
+msgid "Manager"
+msgstr "Mànager"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_catalogue__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_formative_action__participants
+msgid "Participants"
+msgstr "Participants"
+
+#. module: training
+#: model:ir.ui.menu,name:training.menu_2
+msgid "Setup"
+msgstr "Instal.lació"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_formative_action__id_trainer
+msgid "Trainer"
+msgstr "Preparador"
+
+#. module: training
+#: model:ir.module.category,name:training.module_category_training
+#: model:ir.ui.menu,name:training.menu_root
+msgid "Training"
+msgstr "Formació"
+
+#. module: training
+#: model:res.groups,name:training.group_training_user
+msgid "User"
+msgstr "Usuari"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_catalogue__no_hours
+#: model:ir.model.fields,field_description:training.field_training_formative_action__no_hours
+msgid "no hours"
+msgstr "Númer d'hores"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_formative_action__no_sessions
+msgid "no sessions"
+msgstr "Número de sessions"
+
+#. module: training
+#: model:ir.model,name:training.model_training_catalogue
+msgid "training.catalogue"
+msgstr "training.catalogue"
+
+#. module: training
+#: model:ir.model,name:training.model_training_formative_action
+msgid "training.formative_action"
+msgstr "training.formative_action"
